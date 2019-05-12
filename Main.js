@@ -37,13 +37,20 @@ export class Main{
 
     }
     registerEvent(){
-        this.canvas.addEventListener('touchstart',e => {
-            e.preventDefault();
-            if(this.director.isGameOver){
-                this.init();
-            } else {
-                this.director.birdsEvent();
-            }
+        // this.canvas.addEventListener('touchstart',e => {
+        //     e.preventDefault();
+        //     if(this.director.isGameOver){
+        //         this.init();
+        //     } else {
+        //         this.director.birdsEvent();
+        //     }
+        // })
+        wx.onTouchStart(()=>{
+          if (this.director.isGameOver) {
+            this.init();
+          } else {
+            this.director.birdsEvent();
+          }
         })
     }
 }
